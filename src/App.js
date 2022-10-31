@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { UserProvider } from './utils/UserContext';
 
-function App() {
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import About from './components/About';
+import Products from './components/Products';
+import FeaturedProducts from './components/FeaturedProducts';
+import NewProducts from './components/NewProducts';
+import OrderSummary from './components/OrderSummary';
+import Users from './components/Users';
+import UserDetails from './components/UserDetails';
+import NoMatchPage from './components/NoMatchPage';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="products" element={<Products />}>
+          <Route index element={<FeaturedProducts />} />
+          <Route path="featured" element={<FeaturedProducts />} />
+          <Route path="new" element={<NewProducts />} />
+        </Route>
+        <Route path="order-summary" element={<OrderSummary />} />
+        <Route path="users" element={<UserProvider><Users /></UserProvider>} />
+        <Route path="users/:userId" element={<UserProvider><UserDetails /></UserProvider>} />
+        <Route path="*" element={<NoMatchPage />} />
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
