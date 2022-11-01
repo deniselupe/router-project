@@ -12,6 +12,7 @@ import Profile from './components/Profile';
 import OrderSummary from './components/OrderSummary';
 import Users from './components/Users';
 import UserDetails from './components/UserDetails';
+import Login from './components/Login'
 import NoMatchPage from './components/NoMatchPage';
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="order-summary" element={<OrderSummary />} />
         <Route path="users" element={<UserProvider><Users /></UserProvider>} />
         <Route path="users/:userId" element={<UserProvider><UserDetails /></UserProvider>} />
+        <Route path="login" element={<Login />} />
         <Route path="*" element={<NoMatchPage />} />
       </Routes>
     </>
