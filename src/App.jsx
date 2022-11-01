@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { UserProvider } from './utils/UserContext';
+import { AuthProvider } from './utils/AuthContext';
 
 import NavBar from './components/NavBar';
 import Home from './components/Home';
@@ -17,7 +18,7 @@ import NoMatchPage from './components/NoMatchPage';
 
 const App = () => {
   return (
-    <>
+    <AuthProvider>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -34,7 +35,7 @@ const App = () => {
         <Route path="login" element={<Login />} />
         <Route path="*" element={<NoMatchPage />} />
       </Routes>
-    </>
+    </AuthProvider>
   );
 };
 
