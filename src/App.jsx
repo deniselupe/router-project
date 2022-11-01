@@ -8,6 +8,7 @@ import About from './components/About';
 import Products from './components/Products';
 import FeaturedProducts from './components/FeaturedProducts';
 import NewProducts from './components/NewProducts';
+import Profile from './components/Profile';
 import OrderSummary from './components/OrderSummary';
 import Users from './components/Users';
 import UserDetails from './components/UserDetails';
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="featured" element={<FeaturedProducts />} />
           <Route path="new" element={<NewProducts />} />
         </Route>
+        <Route path="profile" element={<Profile />} />
         <Route path="order-summary" element={<OrderSummary />} />
         <Route path="users" element={<UserProvider><Users /></UserProvider>} />
         <Route path="users/:userId" element={<UserProvider><UserDetails /></UserProvider>} />

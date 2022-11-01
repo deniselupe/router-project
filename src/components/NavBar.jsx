@@ -19,6 +19,7 @@ const NavBar = () => {
         <NavLink style={activeLinkStyle} to="/" end>Home</NavLink>
         <NavLink style={activeLinkStyle} to="/about">About</NavLink>
         <NavLink style={activeLinkStyle} to="/products">Products</NavLink>
+        <NavLink style={activeLinkStyle} to="/profile">Profile</NavLink>
       </nav>
     </>
   );
