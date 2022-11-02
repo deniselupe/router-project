@@ -16,6 +16,10 @@ const navBarStyle = {
 const NavBar = () => {
   const auth = useAuth();
 
+  const handleLogout = () => {
+    auth.logout();
+  };
+
   return (
     <>
       <nav style={navBarStyle}>
@@ -24,7 +28,11 @@ const NavBar = () => {
         <NavLink style={activeLinkStyle} to="/products">Products</NavLink>
         <NavLink style={activeLinkStyle} to="/profile">Profile</NavLink>
         {
-          !auth.user && <NavLink style={activeLinkStyle} to="/login">Login</NavLink>
+          !auth.user 
+          ? 
+          <NavLink style={activeLinkStyle} to="/login">Login</NavLink>
+          :
+          <NavLink to="/" onClick={handleLogout}>Log Out</NavLink>
         }
       </nav>
     </>
