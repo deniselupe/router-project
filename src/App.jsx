@@ -4,6 +4,7 @@ import { UserProvider } from './utils/UserContext';
 import { AuthProvider } from './utils/AuthContext';
 
 import NavBar from './components/NavBar';
+import RequireAuth from './components/RequireAuth';
 import Home from './components/Home';
 import About from './components/About';
 import Products from './components/Products';
@@ -28,7 +29,7 @@ const App = () => {
           <Route path="featured" element={<FeaturedProducts />} />
           <Route path="new" element={<NewProducts />} />
         </Route>
-        <Route path="profile" element={<Profile />} />
+        <Route path="profile" element={<RequireAuth><Profile /></RequireAuth>} />
         <Route path="order-summary" element={<OrderSummary />} />
         <Route path="users" element={<UserProvider><Users /></UserProvider>} />
         <Route path="users/:userId" element={<UserProvider><UserDetails /></UserProvider>} />

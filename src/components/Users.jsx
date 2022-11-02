@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { UserContext } from '../utils/UserContext';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const Users = () => {
   const allUsers = useContext(UserContext);
   const activeUsers = allUsers.filter(user => user.active === true);
   const [searchParams, setSearchParams] = useSearchParams({});
   const showActiveUsers = searchParams.get('filter') === 'active';
+
+  useDocumentTitle('Users Page');
 
   const enableActiveFilter = () => {
     setSearchParams({filter: 'active'});
