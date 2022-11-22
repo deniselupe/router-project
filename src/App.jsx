@@ -21,21 +21,21 @@ const App = () => {
   return (
     <AuthProvider>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="products" element={<Products />}>
-          <Route index element={<FeaturedProducts />} />
-          <Route path="featured" element={<FeaturedProducts />} />
-          <Route path="new" element={<NewProducts />} />
-        </Route>
-        <Route path="profile" element={<RequireAuth><Profile /></RequireAuth>} />
-        <Route path="order-summary" element={<OrderSummary />} />
-        <Route path="users" element={<UserProvider><Users /></UserProvider>} />
-        <Route path="users/:userId" element={<UserProvider><UserDetails /></UserProvider>} />
-        <Route path="login" element={<Login />} />
-        <Route path="*" element={<NoMatchPage />} />
-      </Routes>
+        <Routes>
+          <Route path="login" element={<Login />} />
+          <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
+          <Route path="about" element={<RequireAuth><About /></RequireAuth>} />
+          <Route path="products" element={<RequireAuth><Products /></RequireAuth>}>
+            <Route index element={<RequireAuth><FeaturedProducts /></RequireAuth>} />
+            <Route path="featured" element={<RequireAuth><FeaturedProducts /></RequireAuth>} />
+            <Route path="new" element={<RequireAuth><NewProducts /></RequireAuth>} />
+          </Route>
+          <Route path="profile" element={<RequireAuth><Profile /></RequireAuth>} />
+          <Route path="order-summary" element={<RequireAuth><OrderSummary /></RequireAuth>} />
+          <Route path="users" element={<UserProvider><Users /></UserProvider>} />
+          <Route path="users/:userId" element={<RequireAuth><UserProvider><UserDetails /></UserProvider></RequireAuth>} />
+          <Route path="*" element={<NoMatchPage />} />
+        </Routes>
     </AuthProvider>
   );
 };
